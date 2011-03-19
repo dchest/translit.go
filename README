@@ -1,0 +1,28 @@
+PACKAGE
+
+package translit
+
+Package translit implements non-standard one-way string transliteration from Cyrillic to Latin.
+
+
+VARIABLES
+
+// Mapping of Russian Cyrillic characters to ASCII Latin.
+var RussianASCII map[int]string
+
+// Mapping of Cyrillic characters to (Czech/Serbian) Latin.
+var CyrillicLatin map[int]string
+
+
+FUNCTIONS
+
+func ToLatin(s string, table map[int]string) string
+
+ToLatin returns a string transliterated using provided mapping table.
+Runes that cannot be transliterated inserted as-is.
+
+
+EXAMPLE
+
+translit.ToLatin("Привет, Человек", translit.RussianASCII)
+// Privet, Chelovek
